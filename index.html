@@ -6,30 +6,168 @@
     <title>Suraj Car Accessories</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f4f4f4; }
-        header { background: #333; color: white; padding: 15px; text-align: center; }
-        .product-grid { display: flex; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
-        .card { background: white; padding: 15px; border-radius: 8px; width: 200px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        button { background: #28a745; color: white; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px; }
+        header { background: #1b2a47; color: white; padding: 15px; text-align: center; border-radius: 8px; }
+        .product-grid { display: flex; gap: 20px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
+        .card { background: white; padding: 15px; border-radius: 8px; width: 280px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: flex; flex-direction: column; justify-content: space-between; }
+        .price-container { margin: 10px 0; }
+        .mrp { text-decoration: line-through; color: #888; font-size: 0.9em; margin-right: 8px; }
+        .price { color: #d9534f; font-weight: bold; font-size: 1.2em; }
+        .btn-container { display: flex; gap: 10px; margin-top: 10px; }
+        button { flex: 1; border: none; padding: 10px; cursor: pointer; border-radius: 4px; font-weight: bold; }
+        .btn-cart { background: #ff9f00; color: white; }
+        .btn-buy { background: #fb641b; color: white; }
+        .payment-section { background: white; margin-top: 30px; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .pay-logos { display: flex; justify-content: center; gap: 15px; margin-top: 10px; font-weight: bold; }
+        .pay-badge { background: #eef2f7; padding: 8px 15px; border-radius: 20px; color: #333; border: 1px solid #ccc; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Suraj Car Accessories</h1>
+        <p>Best Quality Accessories at Discounted Prices</p>
     </header>
 
     <div class="product-grid">
+
         <div class="card">
-            <h3>Car Seat Cover</h3>
-            <p>Price: ₹1,499</p>
-            <button>Buy Now</button>
+            <h3>Car Door Visors</h3>
+            <p>(Chrome Line, Plain)</p>
+            <div class="price-container">
+                <span class="mrp">₹1,999</span>
+                <span class="price">₹1,199</span>
+            </div>
+            <div class="btn-container">
+                <button class="btn-cart" onclick="addToCart('Car Door Visors')">Add to Cart</button>
+                <button class="btn-buy" onclick="buyNow('Car Door Visors', 1199)">Buy Now</button>
+            </div>
         </div>
+
         <div class="card">
-            <h3>LED Headlight</h3>
-            <p>Price: ₹999</p>
-            <button>Buy Now</button>
+            <h3>Car Side Beadings / Claddings</h3>
+            <div class="price-container">
+                <span class="mrp">₹2,499</span>
+                <span class="price">₹1,499</span>
+            </div>
+            <div class="btn-container">
+                <button class="btn-cart" onclick="addToCart('Car Side Beadings')">Add to Cart</button>
+                <button class="btn-buy" onclick="buyNow('Car Side Beadings', 1499)">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Car Mud Flaps</h3>
+            <p>(Car Specific, Universal Sparco, Hockey)</p>
+            <div class="price-container">
+                <span class="mrp">₹1,299</span>
+                <span class="price">₹699</span>
+            </div>
+            <div class="btn-container">
+                <button class="btn-cart" onclick="addToCart('Car Mud Flaps')">Add to Cart</button>
+                <button class="btn-buy" onclick="buyNow('Car Mud Flaps', 699)">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Car Mats</h3>
+            <p>(4D, 7D, TPE/TPV, Universal)</p>
+            <div class="price-container">
+                <span class="mrp">₹4,999</span>
+                <span class="price">₹2,999</span>
+            </div>
+            <div class="btn-container">
+                <button class="btn-cart" onclick="addToCart('Car Mats')">Add to Cart</button>
+                <button class="btn-buy" onclick="buyNow('Car Mats', 2999)">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Car Trunk Garnish Lower</h3>
+            <div class="price-container">
+                <span class="mrp">₹1,499</span>
+                <span class="price">₹899</span>
+            </div>
+            <div class="btn-container">
+                <button class="btn-cart" onclick="addToCart('Car Trunk Garnish')">Add to Cart</button>
+                <button class="btn-buy" onclick="buyNow('Car Trunk Garnish', 899)">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Upper Back Door Garnish</h3>
+            <p>(Lip Garnish)</p>
+            <div class="price-container">
+                <span class="mrp">₹1,299</span>
+                <span class="price">₹799</span>
+            </div>
+            <div class="btn-container">
+                <button class="btn-cart" onclick="addToCart('Upper Back Door Garnish')">Add to Cart</button>
+                <button class="btn-buy" onclick="buyNow('Upper Back Door Garnish', 799)">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Bumper Corner Protector</h3>
+            <div class="price-container">
+                <span class="mrp">₹799</span>
+                <span class="price">₹399</span>
+            </div>
+            <div class="btn-container">
+                <button class="btn-cart" onclick="addToCart('Bumper Corner Protector')">Add to Cart</button>
+                <button class="btn-buy" onclick="buyNow('Bumper Corner Protector', 399)">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Car Wheel Arch</h3>
+            <div class="price-container">
+                <span class="mrp">₹3,499</span>
+                <span class="price">₹2,199</span>
+            </div>
+            <div class="btn-container">
+                <button class="btn-cart" onclick="addToCart('Car Wheel Arch')">Add to Cart</button>
+                <button class="btn-buy" onclick="buyNow('Car Wheel Arch', 2199)">Buy Now</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Car Boot Parcel Tray</h3>
+            <div class="price-container">
+                <span class="mrp">₹2,199</span>
+                <span class="price">₹1,299</span>
+            </div>
+            <div class="btn-container">
+                <button class="btn-cart" onclick="addToCart('Car Boot Parcel Tray')">Add to Cart</button>
+                <button class="btn-buy" onclick="buyNow('Car Boot Parcel Tray', 1299)">Buy Now</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="payment-section">
+        <h3>Easy Payment Options</h3>
+        <p>Send payment on Mobile/UPI Number: <strong>7268808053</strong></p>
+        <div class="pay-logos">
+            <span class="pay-badge">GPay</span>
+            <span class="pay-badge">PhonePe</span>
+            <span class="pay-badge">Paytm</span>
+            <span class="pay-badge">BHIM UPI</span>
+            <span class="pay-badge">WhatsApp Pay</span>
         </div>
     </div>
+
+    <script>
+        function addToCart(product) {
+            alert(product + " added to cart!");
+        }
+
+        function buyNow(product, price) {
+            let phone = "917268808053";
+            let msg = `Hello Suraj Car Accessories, I want to buy *${product}* for ₹${price}. Please share payment options.`;
+            let url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+            window.open(url, '_blank');
+        }
+    </script>
 
 </body>
 </html>
