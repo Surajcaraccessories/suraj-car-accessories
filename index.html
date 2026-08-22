@@ -1,14 +1,425 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <title>Redirecting to Suraj Car Accessories...</title>
-    <script type="text/javascript">
-        window.location.href = "https://surajcaraccessories.blogspot.com";
-    </script>
-    <meta http-equiv="refresh" content="0;url=https://surajcaraccessories.blogspot.com">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suraj Car Accessories</title>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f7;
+      padding-bottom: 70px; /* Space for bottom navigation on mobile */
+    }
+
+    /* Header */
+    header {
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .menu-icon {
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 800;
+      color: #d32f2f;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .cart-icon {
+      position: relative;
+      font-size: 22px;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background: #d32f2f;
+      color: #fff;
+      font-size: 11px;
+      font-weight: bold;
+      border-radius: 50%;
+      padding: 2px 6px;
+    }
+
+    /* Hero Banner */
+    .banner {
+      width: 100%;
+      background: linear-gradient(135deg, #b71c1c, #d32f2f);
+      color: #fff;
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    .banner h2 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .banner p {
+      font-size: 13px;
+      margin-top: 4px;
+      opacity: 0.9;
+    }
+
+    /* Category Bar / Filter Section */
+    .category-header {
+      padding: 16px;
+      background: #fff;
+      margin-bottom: 10px;
+    }
+
+    .category-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #222;
+    }
+
+    .product-count {
+      font-size: 13px;
+      color: #666;
+      margin-top: 2px;
+    }
+
+    /* Product Grid Layout */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 Columns on Mobile */
+      gap: 10px;
+    }
+
+    /* Laptop/Desktop View: 4 Columns */
+    @media (min-width: 768px) {
+      .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      body {
+        padding-bottom: 0;
+      }
+      .bottom-nav {
+        display: none !important; /* Hide bottom navbar on PC */
+      }
+    }
+
+    /* Product Card Design */
+    .product-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sale-tag {
+      position: absolute;
+      top: 8px;
+      left: 0;
+      background: #d32f2f;
+      color: #fff;
+      font-size: 11px;
+      font-weight: bold;
+      padding: 3px 8px;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      z-index: 10;
+    }
+
+    .product-img {
+      width: 100%;
+      height: 160px;
+      object-fit: contain;
+      background: #fafafa;
+      padding: 10px;
+    }
+
+    .product-info {
+      padding: 10px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #222;
+      line-height: 1.3;
+      height: 34px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      margin-bottom: 8px;
+    }
+
+    .price-section {
+      margin-top: auto;
+    }
+
+    .current-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #d32f2f;
+    }
+
+    .original-price {
+      font-size: 12px;
+      color: #888;
+      text-decoration: line-through;
+      margin-left: 5px;
+    }
+
+    .emi-text {
+      font-size: 10px;
+      color: #555;
+      margin-top: 2px;
+    }
+
+    .btn-buy {
+      width: 100%;
+      background: #25d366;
+      color: #fff;
+      border: none;
+      padding: 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 12px;
+      margin-top: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 75px;
+      right: 15px;
+      background-color: #25d366;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      text-decoration: none;
+    }
+
+    /* Bottom Navigation Bar (Mobile App Style) */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      display: flex;
+      justify-content: space-around;
+      padding: 8px 0;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #666;
+      text-decoration: none;
+      font-size: 11px;
+    }
+
+    .nav-item i {
+      font-size: 18px;
+      margin-bottom: 2px;
+    }
+
+    .nav-item.active {
+      color: #d32f2f;
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
-    <p>Please wait, redirecting to <a href="https://surajcaraccessories.blogspot.com">Suraj Car Accessories</a>...</p>
+
+  <!-- Top Header -->
+  <header>
+    <div class="header-left">
+      <i class="fa-solid fa-bars menu-icon"></i>
+      <div class="logo">Suraj Accessories</div>
+    </div>
+    <div class="cart-icon">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span class="cart-badge">0</span>
+    </div>
+  </header>
+
+  <!-- Banner Section -->
+  <div class="banner">
+    <h2>PREMIUM CAR ACCESSORIES</h2>
+    <p>Best Quality • Self Adhesive • Easy To Install</p>
+  </div>
+
+  <!-- Category Info -->
+  <div class="category-header">
+    <div class="category-title">Car Accessories & Spoilers</div>
+    <div class="product-count">9 items available</div>
+  </div>
+
+  <!-- Products Section -->
+  <div class="container">
+    <div class="product-grid">
+
+      <!-- Product 1 -->
+      <div class="product-card">
+        <span class="sale-tag">Sale</span>
+        <img src="https://via.placeholder.com/200x160?text=Kia+Seltos+Spoiler" alt="Product" class="product-img">
+        <div class="product-info">
+          <div class="product-title">Kia Seltos Roof Spoiler || Black Color With Self Adhesive Taping</div>
+          <div class="price-section">
+            <span class="current-price">Rs. 3,499.00</span>
+            <span class="original-price">Rs. 6,899</span>
+            <div class="emi-text">or ₹1166/Month EMI</div>
+          </div>
+          <button class="btn-buy" onclick="buyOnWhatsApp('Kia Seltos Roof Spoiler', '3499')">
+            <i class="fa-brands fa-whatsapp"></i> Buy on WhatsApp
+          </button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <span class="sale-tag">Sale</span>
+        <img src="https://via.placeholder.com/200x160?text=Door+Visor+Set" alt="Product" class="product-img">
+        <div class="product-info">
+          <div class="product-title">Door Visors for Mahindra XEV 9S 2026 Onwards</div>
+          <div class="price-section">
+            <span class="current-price">Rs. 2,299.00</span>
+            <span class="original-price">Rs. 3,499</span>
+            <div class="emi-text">or ₹766/Month EMI</div>
+          </div>
+          <button class="btn-buy" onclick="buyOnWhatsApp('Door Visors Mahindra XEV 9S', '2299')">
+            <i class="fa-brands fa-whatsapp"></i> Buy on WhatsApp
+          </button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <span class="sale-tag">Sale</span>
+        <img src="https://via.placeholder.com/200x160?text=Car+Floor+Mat" alt="Product" class="product-img">
+        <div class="product-info">
+          <div class="product-title">7D Premium Waterproof Car Floor Mats</div>
+          <div class="price-section">
+            <span class="current-price">Rs. 2,499.00</span>
+            <span class="original-price">Rs. 4,500</span>
+            <div class="emi-text">or ₹833/Month EMI</div>
+          </div>
+          <button class="btn-buy" onclick="buyOnWhatsApp('7D Premium Car Floor Mats', '2499')">
+            <i class="fa-brands fa-whatsapp"></i> Buy on WhatsApp
+          </button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product-card">
+        <span class="sale-tag">Sale</span>
+        <img src="https://via.placeholder.com/200x160?text=Car+Body+Cover" alt="Product" class="product-img">
+        <div class="product-info">
+          <div class="product-title">All-Weather Heavy Duty Waterproof Car Cover</div>
+          <div class="price-section">
+            <span class="current-price">Rs. 1,299.00</span>
+            <span class="original-price">Rs. 2,499</span>
+            <div class="emi-text">or ₹433/Month EMI</div>
+          </div>
+          <button class="btn-buy" onclick="buyOnWhatsApp('Waterproof Car Cover', '1299')">
+            <i class="fa-brands fa-whatsapp"></i> Buy on WhatsApp
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Icon -->
+  <a href="https://wa.me/917268808053" class="whatsapp-float" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <div class="bottom-nav">
+    <a href="#" class="nav-item active">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a href="#" class="nav-item">
+      <i class="fa-solid fa-boxes-stacked"></i>
+      <span>Products</span>
+    </a>
+    <a href="#" class="nav-item">
+      <i class="fa-solid fa-truck-fast"></i>
+      <span>Track Order</span>
+    </a>
+    <a href="#" class="nav-item">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <span>Search</span>
+    </a>
+  </div>
+
+  <script>
+    // Direct WhatsApp Order Function
+    function buyOnWhatsApp(productName, price) {
+      const phoneNumber = "917268808053"; // Aapka WhatsApp Number
+      const message = `Hello Suraj Car Accessories! I want to buy *${productName}* for Rs. ${price}. Please share payment & delivery details.`;
+      const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+
 </body>
 </html>
